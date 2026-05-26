@@ -1,0 +1,20 @@
+.DS_Store
+.env
+.env.*
+*.log
+
+node_modules/
+.cache/
+tmp/
+dist/
+build/
+
+# Local tool state and generated caches
+.claude/
+.codex/cache/
+.codex/logs/
+
+# Editor state
+.idea/
+.vscode/
+*.swp
