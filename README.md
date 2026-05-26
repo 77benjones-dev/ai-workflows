@@ -1,6 +1,6 @@
 # AI Workflows
 
-Reusable agent instructions, Codex skills, Claude project guidance, and prompt templates for software development workflows.
+Skills, instructions, agents, and other resources for agentic PM and development workflows.
 
 This repository is intentionally public-friendly. It is organized by tool where needed, with shared prompts and examples separated from machine-specific configuration.
 
