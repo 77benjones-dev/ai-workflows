@@ -1,11 +1,11 @@
-# Codex Skills
+# Skills
 
 Each Codex skill should live in its own directory with a `SKILL.md`.
 
 Example:
 
 ```text
-codex/skills/my-skill/
+skills/my-skill/
   SKILL.md
   scripts/
   references/
