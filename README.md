@@ -1,15 +1,31 @@
 # AI Workflows
 
-Skills, instructions, agents, and other resources for agentic PM and development workflows.
+Reusable AI workflow materials I have developed for product management and software development.
 
-This repository is intentionally public-friendly. It keeps reusable skills, prompts, examples, and helper scripts separated from machine-specific configuration.
+This repository is a public portfolio and reference library. It collects skills, prompts, examples, and working patterns I use to make AI-assisted work more structured, repeatable, and reviewable.
 
-## Contents
+Everything here is sanitized for public sharing and intended to be useful without exposing private company, client, or machine-specific context.
 
-- `skills/` - Agent skills, each in its own folder with a `SKILL.md`.
-- `prompts/` - Prompt templates that are not tied to a specific tool.
-- `examples/` - Small examples showing how these workflows are meant to be used.
-- `scripts/` - Optional helper scripts.
+## Why This Exists
+
+Most AI workflow advice is a pile of prompt snippets. This repo is my working set: reusable instructions, skills, examples, and prompt patterns that turn repeated work into something easier to run, improve, and share.
+
+This is not currently organized around public contributions. It is primarily a curated collection of my own AI workflow experiments, patterns, and reusable materials.
+
+## What's Here
+
+### Skills
+
+- `skills/capability-advisor/` - Recommends the right delivery mechanism for a task or recurring need, such as a prompt, skill, agent, hook, cron, MCP, plugin, or existing tool.
+
+### Prompts
+
+- `prompts/prompt-architect/` - Turns a vague request into a copy-paste-ready prompt with role, inputs, constraints, output structure, variants, and stress tests.
+- `prompts/prompt-tips.md` - A compact reference of prompting patterns with examples and product-management use cases.
+
+### Examples
+
+- `examples/CLAUDE.md` - A reference global Claude Code instruction file showing communication style, workflow preferences, and reusable operating rules.
 
 ## Usage
 
@@ -23,6 +39,12 @@ skills/example-skill/
   scripts/
   references/
 ```
+
+## What Good Looks Like
+
+The `capability-advisor` skill is a good example of the pattern this repo is aiming for. It does not just answer a question; it helps choose the right shape for future work. A one-off task might stay a prompt, a repeated workflow might become a skill, and a scheduled check might become an automation.
+
+That matters because the mechanism is often the real design decision. The goal is not to turn every useful prompt into infrastructure. The goal is to make repeated AI work easier to run, easier to review, and easier to improve over time.
 
 ## Public Sharing Notes
 
