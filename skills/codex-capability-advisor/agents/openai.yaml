@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Capability Advisor"
+  short_description: "Choose the right Codex delivery mechanism"
+  default_prompt: "Use $codex-capability-advisor to recommend the simplest Codex mechanism for this recurring need."

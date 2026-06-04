@@ -76,7 +76,7 @@ Solo capabilities are rare. These combos cover ~80% of recommendations:
 | Pattern | Primary | Companions | Example |
 |---|---|---|---|
 | Recurring automation | Cron | Skill, Knowledge files | Slack sweep every weekday 8am |
-| Reusable workflow | Skill | Knowledge files, Subagent | `pr-description-writer` + PR template knowledge file |
+| Reusable workflow | Skill | Knowledge files, Subagent | `user-story-generator` + AC style guide |
 | Heavy research delegation | Skill | Specialized agent, Background task | A prep skill spawning multiple researcher agents in parallel |
 | Auto-behavior | Hook | Slash command body, Skill | "After every Stop, run drift-check" |
 | Speculative code change | Subagent | Worktree isolation | Refactor proposal in isolated branch |
@@ -278,7 +278,7 @@ The user types a message, types a slash command, or says a phrase a skill descri
 
 #### Plugin (bundle)
 **Pick when:** packaging multiple related skills + agents + commands + hooks for distribution (teammates, public).
-**Pick over individual skills when:** one install, shared dependencies, namespaced commands. A `team-toolkit:*` plugin bundling related PM or eng workflows is a typical example.
+**Pick over individual skills when:** one install, shared dependencies, namespaced commands. The `product-management:*` plugin in this workspace is an example.
 **Cost:** plugin overhead is high. Worth it only for 3+ related artifacts shipped together.
 
 ### Off-Claude-Code paths
@@ -366,10 +366,10 @@ When two mechanisms are close, recommend the simpler one with a "graduate to [mo
 **Anti-pattern flagged:** "from now on, every time" framed as memory.
 **Handoff:** `update-config`.
 
-### Example 3 — "Re-explaining the code review checklist to ChatGPT every time"
-**Best fit: Skill** (`code-review-helper`) **with knowledge file companions** (`REVIEW_RULES.md`, `STYLE_GUIDE.md`). Workflow has stages, branches by repo or PR type, references stable content.
-**If using ChatGPT not CC:** Custom GPT with the style guide attached.
-**Handoff:** `find-skills` to check whether something similar already exists; otherwise scaffold the skill.
+### Example 3 — "Re-explaining user story format to ChatGPT every time"
+**Best fit: Skill** (already exists: `user-story-generator`) **with knowledge file companions** (`USER_STORY_KNOWLEDGE.md`, `AC_STYLE_GUIDE.md`). Workflow has stages, branches by team, references stable content.
+**If using ChatGPT not CC:** Custom GPT with the AC style guide attached.
+**Handoff:** `find-skills` confirmed it exists. Use it.
 
 ### Example 4 — "Sweep Slack every weekday 8am for action items + FYIs"
 **Best fit: Cron + Skill + Subagent** combination.

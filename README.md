@@ -14,14 +14,21 @@ This is not currently organized around public contributions. It is primarily a c
 
 ## What's Here
 
+### Packages
+
+- `activity-log/` - Adds a cross-session markdown journal, narrative milestone template, and workspace hooks for Claude Code and Codex.
+
 ### Skills
 
-- `skills/capability-advisor/` - Recommends the right delivery mechanism for a task or recurring need, such as a prompt, skill, agent, hook, cron, MCP, plugin, or existing tool.
+- `skills/cc-capability-advisor/` - Recommends the right Claude Code delivery mechanism for a task or recurring need, such as a prompt, skill, agent, hook, cron, MCP, plugin, or existing tool.
+- `skills/codex-capability-advisor/` - Recommends the simplest Codex app, workspace, automation, skill, plugin, MCP, or API mechanism for a recurring need.
+- `skills/jira-create/` - Creates Jira issues from structured markdown stories with wiki-markup conversion, field mapping, and update safeguards.
+- `skills/public-workflow-prep/` - Sanitizes skills, prompts, agent instructions, and workflow packages for public sharing in this repo.
 
 ### Prompts
 
+- `prompts/prompt-compendium.md` - A practical reference of prompting techniques, frameworks, and examples for better AI outputs.
 - `prompts/prompt-architect/` - Turns a vague request into a copy-paste-ready prompt with role, inputs, constraints, output structure, variants, and stress tests.
-- `prompts/prompt-tips.md` - A compact reference of prompting patterns with examples and product-management use cases.
 
 ### Examples
 

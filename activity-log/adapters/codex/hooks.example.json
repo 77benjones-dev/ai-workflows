@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' start --platform codex # activity-log-package",
+            "statusMessage": "Loading workspace activity log"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' edit --platform codex # activity-log-package",
+            "statusMessage": "Recording workspace edit"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' stop --platform codex # activity-log-package",
+            "statusMessage": "Recording workspace checkpoint"
+          }
+        ]
+      }
+    ]
+  }
+}

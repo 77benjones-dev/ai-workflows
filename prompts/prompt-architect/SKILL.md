@@ -19,9 +19,9 @@ Take a user request and produce a production-grade prompt. The deliverable is th
 
 ## Knowledge file
 
-Canonical best-practices reference: `examples/prompt-tips.md` in this repo, or wherever you've saved it locally.
+Canonical best-practices reference: `prompts/prompt-compendium.md` in this repo.
 
-Load lazily — only read when the request needs technique-level guidance (e.g., user asks "which technique fits here?", or you're unsure which 3-7 techniques to apply). For most prompt-building, the rules below are sufficient.
+Load lazily - only read when the request needs technique-level guidance, such as when the user asks which technique fits or when you are unsure which 3-7 techniques to apply. For most prompt-building, the rules below are sufficient.
 
 ## Decision rules (non-negotiable)
 

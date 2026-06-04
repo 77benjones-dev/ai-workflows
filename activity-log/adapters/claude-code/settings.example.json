@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' start --platform claude # activity-log-package",
+            "async": false
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' edit --platform claude # activity-log-package",
+            "async": false
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '<workspace>/tools/activity-log/activity_logger.py' stop --platform claude # activity-log-package",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}
