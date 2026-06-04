@@ -131,7 +131,7 @@ When included, pick **at most 3** from the menu below. Frame each as "if X about
 
 **Capability menu:**
 
-- **Extended Thinking** — when the answer involves tradeoffs, ambiguity, or multi-step reasoning. Tell the user to enable thinking mode (default on Opus 4.7 in Claude Code; `thinking: { type: "enabled", budget_tokens: 10000 }` via API). Best for evaluative prompts.
+- **Extended Thinking** — when the answer involves tradeoffs, ambiguity, or multi-step reasoning. Tell the user to enable the platform's extended-thinking mode when available. Best for evaluative prompts.
 - **Prompt Caching** — when the same prompt will run 5+ times with only one variable changing (e.g., scoring multiple vendors against the same rubric). 90% cost reduction. Cache the static blocks via API `cache_control: { type: "ephemeral" }`.
 - **Tool Use (Web Search)** — when input data is incomplete, stale, or vendor-supplied (only one side of the story). Removes manual data-prep step. Add an explicit rule to distinguish independent sources from supplied ones.
 - **Citations** — when output must be auditable and every claim traceable. Critical for high-stakes evaluations going up the chain. Enable via API document `citations: { enabled: true }`, or simulate in-prompt by requiring inline quoted excerpts.
