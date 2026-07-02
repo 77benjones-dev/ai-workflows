@@ -29,6 +29,7 @@ def report_plan(workspace: Path) -> None:
     for _, destination in installed_files(workspace):
         print(f"- remove if unchanged: {destination}")
     print(f"- keep: {workspace / 'ACTIVITY_LOG.md'}")
+    print(f"- keep: {workspace / 'CONTEXT.md'}")
 
 
 def apply_uninstall(workspace: Path) -> None:
@@ -56,6 +57,7 @@ def apply_uninstall(workspace: Path) -> None:
     if helper_dir.exists() and not any(helper_dir.iterdir()):
         helper_dir.rmdir()
     print(f"Kept activity history: {workspace / 'ACTIVITY_LOG.md'}")
+    print(f"Kept context snapshot: {workspace / 'CONTEXT.md'}")
 
 
 def main() -> int:

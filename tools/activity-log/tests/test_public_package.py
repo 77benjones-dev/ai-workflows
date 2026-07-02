@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 import sys
 import unittest
+import shutil
 from pathlib import Path
 
 
@@ -12,6 +13,8 @@ VERIFY = PACKAGE_ROOT / "scripts" / "verify_public_package.py"
 
 class PublicPackageTest(unittest.TestCase):
     def test_public_package_scan_passes(self) -> None:
+        for cache_dir in PACKAGE_ROOT.rglob("__pycache__"):
+            shutil.rmtree(cache_dir)
         result = subprocess.run(
             [sys.executable, str(VERIFY)],
             check=False,

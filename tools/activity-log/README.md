@@ -9,6 +9,7 @@ AI sessions are short-lived. Projects are not. This package adds a plain-markdow
 ```text
 <workspace>/
   ACTIVITY_LOG.md
+  CONTEXT.md
   tools/activity-log/
     activity_logger.py
     MILESTONE_TEMPLATE.md
@@ -23,8 +24,11 @@ The installer merges activity-log hooks into existing Claude Code and Codex conf
 
 The package uses a hybrid model:
 
-- Hooks record a deduplicated trail of edited files and lightweight activity checkpoints.
-- A session-start hook surfaces recent workspace history.
+- `ACTIVITY_LOG.md` keeps the durable history.
+- `CONTEXT.md` keeps the compact current-state snapshot for session handoffs.
+- Hooks record a deduplicated trail of edited files and lightweight activity checkpoints to the nearest existing `ACTIVITY_LOG.md`.
+- A Stop hook refreshes `CONTEXT.md` beside that log.
+- A session-start hook reads `CONTEXT.md` first and falls back to recent log history only when no snapshot exists.
 - Agent instructions ask the agent to add narrative milestones after substantive work.
 
 The hooks tell you what changed. Narrative milestones explain why it changed.
@@ -60,6 +64,16 @@ Preview the changes first. Do not apply them until I approve the plan.
 
 See [SETUP.md](SETUP.md) for the full agent-readable workflow.
 
+## Project Logs
+
+The root `ACTIVITY_LOG.md` and `CONTEXT.md` cover broad workspace work. For a repo or project that needs its own history, initialize a project log:
+
+```bash
+python3 tools/activity-log/activity_logger.py init --path "/path/to/workspace/projects/example-project"
+```
+
+After that, edits under that project route to the nearest project `ACTIVITY_LOG.md`, and the Stop hook refreshes the neighboring `CONTEXT.md`.
+
 ## Uninstall
 
 Preview the removal:
@@ -74,7 +88,7 @@ Apply it:
 python3 scripts/uninstall.py --workspace "/path/to/workspace" --apply
 ```
 
-Uninstall removes only package-owned hook entries and unchanged helper files. It leaves `ACTIVITY_LOG.md` in place so your history is preserved.
+Uninstall removes only package-owned hook entries and unchanged helper files. It leaves `ACTIVITY_LOG.md` in place so your history is preserved. It also leaves `CONTEXT.md` in place so your current-state snapshot is preserved.
 
 ## Requirements
 
@@ -97,6 +111,7 @@ Windows is not supported in this first release. Windows support needs separate c
 - It does not send data to an external service.
 - It does not record full transcripts.
 - It does not overwrite an existing `ACTIVITY_LOG.md`.
+- It does not overwrite an existing `CONTEXT.md`.
 - It does not edit `AGENTS.md` automatically.
 - It does not generate automatic transcript summaries.
 

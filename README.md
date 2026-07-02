@@ -14,16 +14,22 @@ This is not currently organized around public contributions. It is primarily a c
 
 ## What's Here
 
-### Packages
+### Tools
 
-- `activity-log/` - Adds a cross-session markdown journal, narrative milestone template, and workspace hooks for Claude Code and Codex.
+- `tools/activity-log/` - Adds a cross-session markdown journal, narrative milestone template, and workspace hooks for Claude Code and Codex.
+- `tools/sonos-control/` - Adds local-network Sonos discovery and control commands for terminal-based AI agents without OpenClaw or cloud APIs.
 
 ### Skills
 
+- `skills/analyzing-youtube-videos/` - Retrieves timestamped YouTube captions and turns videos into evidence-aware learning reports.
 - `skills/cc-capability-advisor/` - Recommends the right Claude Code delivery mechanism for a task or recurring need, such as a prompt, skill, agent, hook, cron, MCP, plugin, or existing tool.
 - `skills/codex-capability-advisor/` - Recommends the simplest Codex app, workspace, automation, skill, plugin, MCP, or API mechanism for a recurring need.
-- `skills/jira-create/` - Creates Jira issues from structured markdown stories with wiki-markup conversion, field mapping, and update safeguards.
+- `skills/new-project/` - Scaffolds lightweight project context files for new or existing initiatives.
 - `skills/public-workflow-prep/` - Sanitizes skills, prompts, agent instructions, and workflow packages for public sharing in this repo.
+
+### Product Manager Workflows
+
+- `product-manager-skills/` - Groups product-management skills, examples, and references, including Jira issue creation and one-pager/story workflows.
 
 ### Prompts
 
@@ -52,16 +58,6 @@ skills/example-skill/
 The `capability-advisor` skill is a good example of the pattern this repo is aiming for. It does not just answer a question; it helps choose the right shape for future work. A one-off task might stay a prompt, a repeated workflow might become a skill, and a scheduled check might become an automation.
 
 That matters because the mechanism is often the real design decision. The goal is not to turn every useful prompt into infrastructure. The goal is to make repeated AI work easier to run, easier to review, and easier to improve over time.
-
-## Public Sharing Notes
-
-Before publishing changes, check for:
-
-- API keys, tokens, or credentials.
-- Private repository names or internal URLs.
-- Client, customer, or employer-specific details.
-- Personal filesystem paths.
-- Generated caches, logs, and local tool state.
 
 ## License
 

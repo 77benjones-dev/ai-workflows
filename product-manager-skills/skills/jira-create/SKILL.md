@@ -157,30 +157,6 @@ Jira wiki markup is not markdown. Use these conventions when building `descripti
 - Code blocks: `{code}...{code}` or `{noformat}...{noformat}`
 - Mentions: use the format your Jira instance supports; avoid inserting real user identifiers unless the user provided them for this ticket
 
-## Status Guard For Updates
-
-Before editing `summary` or `description` of an existing ticket, GET the ticket's current `status.name`. This guard applies only to `summary` and `description`; other field updates and new ticket creation are unaffected.
-
-Safe to edit without extra confirmation:
-
-- `Initial Review`
-- `Ready for Estimates`
-- `Needs More Info`
-
-Requires explicit confirmation before updating:
-
-- `To Be Sprint Planned`
-- `Brief In` / `Briefed In`
-- `Dev Ready` / `Ready for Dev`
-- `In Development` / `In Dev`
-- `Code Review` / `In Code Review`
-- `In QA` / `Ready for QA`
-- `UAT` / `Ready for UAT`
-- `Done` / `Closed` / `Released`
-- Any unrecognized status
-
-Default to confirmation when the status string does not match the safe list exactly. For batch updates, GET all statuses first, group tickets into safe and confirmation-required sets, then ask once for the confirmation-required group.
-
 ## Workflow
 
 When the user requests issue creation:
@@ -262,3 +238,4 @@ Derived fields:
 - Jira Cloud and Jira Server/Data Center may differ in authentication, account IDs, API version, wiki markup support, and custom field behavior. Check the target instance before mutating real issues.
 - Custom fields are instance-specific. Discover field IDs before using this skill on a new Jira instance.
 - Assignee fields are especially instance-dependent. Prefer leaving tickets unassigned unless the user explicitly asks and provides the right identifier.
+- This skill works well when paired with /user-story-generator

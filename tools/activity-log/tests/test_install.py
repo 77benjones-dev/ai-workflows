@@ -35,6 +35,7 @@ class InstallTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Dry run", result.stdout)
         self.assertFalse((self.workspace / "ACTIVITY_LOG.md").exists())
+        self.assertFalse((self.workspace / "CONTEXT.md").exists())
         self.assertFalse((self.workspace / ".claude" / "settings.json").exists())
         self.assertFalse((self.workspace / ".codex" / "hooks.json").exists())
 
@@ -42,6 +43,7 @@ class InstallTest(unittest.TestCase):
         result = self.run_script(INSTALLER, "--apply")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue((self.workspace / "ACTIVITY_LOG.md").exists())
+        self.assertTrue((self.workspace / "CONTEXT.md").exists())
         self.assertTrue((self.workspace / "tools" / "activity-log" / "activity_logger.py").exists())
         self.assertTrue((self.workspace / "tools" / "activity-log" / "MILESTONE_TEMPLATE.md").exists())
         self.assertTrue((self.workspace / "tools" / "activity-log" / "AGENTS_SNIPPET.md").exists())
@@ -104,6 +106,7 @@ class InstallTest(unittest.TestCase):
         result = self.run_script(UNINSTALLER, "--apply")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue((self.workspace / "ACTIVITY_LOG.md").exists())
+        self.assertTrue((self.workspace / "CONTEXT.md").exists())
         self.assertIn("printf existing", claude_path.read_text())
         self.assertNotIn("activity_logger.py", claude_path.read_text())
 

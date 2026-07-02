@@ -25,6 +25,7 @@ def file_plan(workspace: Path) -> list[tuple[Path, Path, bool]]:
             True,
         ),
         (PACKAGE_ROOT / "core" / "ACTIVITY_LOG.template.md", workspace / "ACTIVITY_LOG.md", False),
+        (PACKAGE_ROOT / "core" / "CONTEXT.template.md", workspace / "CONTEXT.md", False),
     ]
 
 
