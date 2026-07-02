@@ -1,0 +1,4 @@
+interface:
+  display_name: "YouTube Learning Analyzer"
+  short_description: "Distill YouTube videos into learning reports"
+  default_prompt: "Use $analyzing-youtube-videos to analyze this YouTube video and save a learning report."
