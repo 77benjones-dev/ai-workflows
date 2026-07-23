@@ -1,8 +1,11 @@
 .DS_Store
-AGENTS.md
+/AGENTS.md
+/agents.md
 .env
 .env.*
 *.log
+__pycache__/
+*.pyc
 
 node_modules/
 .cache/

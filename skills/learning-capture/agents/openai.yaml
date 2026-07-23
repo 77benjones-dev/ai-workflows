@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learning Capture"
+  short_description: "Distill videos into durable learning reports"
+  default_prompt: "Use $learning-capture to analyze this video and save a learning report."

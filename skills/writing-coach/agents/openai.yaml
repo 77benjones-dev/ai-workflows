@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Coach"
+  short_description: "Capture, research, shape, and review personal articles"
+  default_prompt: "Use $writing-coach to create a blank article draft, then suggest an optional research brief without writing prose for me."
