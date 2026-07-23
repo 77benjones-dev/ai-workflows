@@ -21,7 +21,7 @@ This is not currently organized around public contributions. It is primarily a c
 
 ### Skills
 
-- `skills/analyzing-youtube-videos/` - Retrieves timestamped YouTube captions and turns videos into evidence-aware learning reports.
+- `skills/learning-capture/` - Retrieves timestamped YouTube captions and turns videos into evidence-aware learning reports.
 - `skills/cc-capability-advisor/` - Recommends the right Claude Code delivery mechanism for a task or recurring need, such as a prompt, skill, agent, hook, cron, MCP, plugin, or existing tool.
 - `skills/codex-capability-advisor/` - Recommends the simplest Codex app, workspace, automation, skill, plugin, MCP, or API mechanism for a recurring need.
 - `skills/new-project/` - Scaffolds lightweight project context files for new or existing initiatives.

@@ -1,9 +1,9 @@
 ---
-name: analyzing-youtube-videos
-description: Use whenever a user message contains any YouTube video URL, including a bare youtube.com, youtu.be, Shorts, live, or embed link, or when the user asks to analyze, summarize, learn from, critique, or extract a process from a YouTube video.
+name: learning-capture
+description: Use whenever a user message contains any YouTube video URL, including a bare youtube.com, youtu.be, Shorts, live, or embed link, or when the user asks to capture learning, analyze, summarize, critique, or extract a process from a video.
 ---
 
-# Analyzing YouTube Videos
+# Learning Capture
 
 Turn every shared YouTube video into a durable learning report. Optimize for transferable understanding, not a generic summary.
 
@@ -33,7 +33,7 @@ For each distinct YouTube video:
   --output "<workspace>/scratch/youtube-learning/<video-id>.json"
 ```
 
-Resolve `<skill-directory>` to the installed `analyzing-youtube-videos` skill folder. Resolve `<workspace>` to the current project or another user-selected workspace root.
+Resolve `<skill-directory>` to the installed `learning-capture` skill folder. Resolve `<workspace>` to the current project or another user-selected workspace root.
 
 2. Read the transcript. For long videos, inspect it in sections before synthesizing.
 3. Analyze using the evidence standards below.
