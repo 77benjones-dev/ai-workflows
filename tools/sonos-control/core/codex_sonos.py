@@ -11,11 +11,32 @@ import argparse
 import json
 import sys
 from dataclasses import dataclass
-from typing import Any, Iterable
+from typing import TYPE_CHECKING, Any, Iterable
 
-import soco
-from soco import SoCo
-from soco.exceptions import SoCoException, SoCoUPnPException
+if TYPE_CHECKING:
+    import soco
+    from soco import SoCo
+    from soco.exceptions import SoCoException, SoCoUPnPException
+
+
+def load_soco() -> None:
+    """Load the optional runtime dependency after argument parsing."""
+    global soco, SoCo, SoCoException, SoCoUPnPException
+
+    try:
+        import soco as soco_module
+        from soco import SoCo as soco_class
+        from soco.exceptions import SoCoException as soco_exception
+        from soco.exceptions import SoCoUPnPException as soco_upnp_exception
+    except ImportError as exc:
+        raise RuntimeError(
+            "Sonos control requires SoCo. Install tools/sonos-control/requirements.txt first."
+        ) from exc
+
+    soco = soco_module
+    SoCo = soco_class
+    SoCoException = soco_exception
+    SoCoUPnPException = soco_upnp_exception
 
 
 @dataclass
@@ -325,6 +346,14 @@ def main(argv: Iterable[str] | None = None) -> int:
     raw_argv = list(argv) if argv is not None else sys.argv[1:]
     args = parser.parse_args(normalize_global_args(raw_argv))
     options = Options(args.timeout, args.scan, args.interface, args.json)
+    try:
+        # Help is useful before setup; importing SoCo here lets argparse return it
+        # without requiring the optional local-network dependency to be installed.
+        load_soco()
+    except RuntimeError as exc:
+        print(f"sonos error: {exc}", file=sys.stderr)
+        return 1
+
     try:
         print_result(args.func(args, options), as_json=args.json)
         return 0
